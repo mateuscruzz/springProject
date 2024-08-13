@@ -3,10 +3,19 @@ package com.springProject.course.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_user") // Alterar o nome da tabela para nao ter conflito com a tag User
 public class User implements Serializable {
-	
 	private static final long serialVersionUID = 1L;
 	
+	@Id //primaryKey
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //autoIncrement
 	private Long id;
 	private String name;
 	private String email;
